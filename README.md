@@ -1,4 +1,4 @@
-# 04-gif-expert-app
+# Gif Expert App
 
 Gif app that shows gifs based on input search
 
