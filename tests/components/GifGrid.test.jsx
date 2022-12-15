@@ -9,7 +9,6 @@ describe('Testing on <GifGrid />', () => {
     const category = 'One Punch';
 
     test('should show loading on start', () => {
-
         useFetchGifs.mockReturnValue({
             images: [],
             isLoading: true
@@ -21,13 +20,28 @@ describe('Testing on <GifGrid />', () => {
         // screen.debug();
     });
 
-    test('should first', () => {
+    test('should show items when call useFetchGifs method', () => {
+        const gifs = [
+            {
+                id: 'ABC',
+                title: 'Saitama',
+                url: 'https://localhost/saitama.jpg'
+            },
+            {
+                id: '123',
+                title: 'Goku',
+                url: 'https://localhost/goku.jpg'
+            },
+        ]
 
         useFetchGifs.mockReturnValue({
-            images: [],
+            images: gifs,
             isLoading: false
         });
 
+        render(<GifGrid category={ category } />);
+        expect(screen.getAllByRole('img').length).toBe(2);
+        // screen.debug();
     });
 
 });
